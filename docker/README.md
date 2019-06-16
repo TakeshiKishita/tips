@@ -15,7 +15,7 @@ pip3 install tornado==5.1.1
 # SSHで接続することを前提としたコンテナ
 # VS Code Remote を使用した開発を行いたいので
 sudo docker build -t gluon .
-sudo docker run --runtime nvidia --name gluon -d -p 22122:22　-v /work:/work gluon
+sudo docker run --runtime nvidia --name gluon -d -p 22122:22 -v /work:/work gluon
 
 ```
 
