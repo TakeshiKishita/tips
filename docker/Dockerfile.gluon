@@ -20,5 +20,10 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
+# openCVインストール
+RUN apt-get install -y libgtk2.0-0 libsm6 libxext6 libxrender-dev
+RUN pip3 install opencv-contrib-python
+
+
 # gluonCVインストール
 RUN pip3 install gluoncv --pre --upgrade
