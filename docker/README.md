@@ -17,6 +17,12 @@ pip3 install tornado==5.1.1
 sudo docker build -t gluon .
 sudo docker run --runtime nvidia --name gluon -d -p 22122:22 -v /work:/work gluon
 
+# SSH接続先のDocker内のGUIアプリを、SSHのクライアント側で表示させる場合
+sudo docker run --runtime nvidia --name gluon -it -v /work:/work \
+  --net host \
+  -e DISPLAY=$DISPLAY \
+  -v $HOME/.Xauthority:/root/.Xauthority \
+  gluon bash
 ```
 
 
