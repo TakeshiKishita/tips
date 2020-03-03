@@ -1,6 +1,6 @@
 # tips
 ## [Docker](./docker)
-* コマンド
+* run, build コマンド
 * Dockerfile
 ## [Jupyter](./jupyter)
 * notebook 起動コマンド
