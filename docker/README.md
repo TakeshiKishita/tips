@@ -4,21 +4,18 @@ sample
 ## run
 ```bash
 # pytorch
-sudo docker run --name pytorch --runtime=nvidia  -it -p 8888:8888 -p 6006:6006 -v /work:/work pytorch/pytorch:latest
+docker run --name pytorch --runtime=nvidia  -it -p 8888:8888 -p 6006:6006 -v /work:/work pytorch/pytorch:latest
 
 # kaggle
-sudo docker run --runtime nvidia --name kaggle --rm -it -p 8889:8888 -p 6007:6006 -v /work:/work kaggle/python-gpu-build /bin/bash
-pip3 uninstall tornado
-pip3 install tornado==5.1.1
-
+docker run --runtime nvidia --rm -it -p 8888:8888 -p 6006:6006 -v /work:/work kaggle/python-gpu-build /bin/bash
 # GLUON
 # SSHで接続することを前提としたコンテナ
 # VS Code Remote を使用した開発を行いたいので
-sudo docker build -t gluon .
-sudo docker run --runtime nvidia --name gluon -d -p 22122:22 -v /work:/work gluon
+docker build -t gluon .
+docker run --runtime nvidia --name gluon -d -p 22122:22 -v /work:/work gluon
 
 # GUIアプリをSSHクライアント側で見る
-sudo docker run --runtime nvidia --name gluon -it -v /work:/work
+docker run --runtime nvidia --name gluon -it -v /work:/work
   --net host \
   -e DISPLAY=$DISPLAY \
   -v $HOME/.Xauthority:/root/.Xauthority \
