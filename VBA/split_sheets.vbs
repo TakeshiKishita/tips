@@ -22,15 +22,12 @@ Sub split_sheets()
         MkDir dir_path
     End If
 
-    '保存先ディレクトリへ移動
-    ChDir dir_path
-
     '全てのシートを個別に保存
     Application.ScreenUpdating = False
     For Each ws In Worksheets
         ws.Copy
         With ActiveWorkbook
-            .SaveAs ActiveSheet.Name & sp & ws.Name
+            .SaveAs dir_path & sp & ws.Name
             .Close
         End With
     Next ws
